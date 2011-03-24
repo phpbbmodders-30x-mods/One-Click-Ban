@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<?xml-stylesheet type="text/xsl" href="modx.prosilver.en.xsl"?>
+<!--NOTICE: Please open this file in your web browser. If presented with a security warning, you may safely tell it to allow the blocked content.-->
+<!--For security purposes, please check: http://www.phpbb.com/mods/ for the latest version of this MOD.\nAlthough MODs are checked before being allowed in the MODs Database there is no guarantee that there are no security problems within the MOD.\nNo support will be given for MODs not found within the MODs Database which can be found at http://www.phpbb.com/mods/-->
+<mod xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.phpbb.com/mods/xml/modx-1.2.5.xsd">
+	<header>
+		<meta name="generator" content="MODX file generated with PP MODX Creator 1.0.1 by tumba25 (phpBB version) at phpbbmodders.net"/>
+		<license><![CDATA[http://opensource.org/licenses/gpl-license.php GNU General Public License v2]]></license>
+		<title lang="en"><![CDATA[One Click Ban]]></title>
+		<description lang="en"><![CDATA[Adds a script to one click ban a user.  Along with banning you can have it automatically move the user to a certain group, delete their posts, delete their avatar, signature, and profile information.]]></description>
+		<author-notes lang="en"><![CDATA[You can configure the script by editing the adm/ocban.php file.
+
+Only administrators will be able to OC Ban users.
+
+We would prefer if you request support for this MOD and report errors in our tracker at http://phpbbmodders.net]]></author-notes>
+		<author-group>
+			<author>
+				<realname><![CDATA[Nathan Guse]]></realname>
+				<username><![CDATA[EXreaction]]></username>
+				<homepage><![CDATA[http://www.lithiumstudios.org/]]></homepage>
+				<email><![CDATA[exreaction@lithiumstidos.org]]></email>
+				<contributions-group>
+					<contributions status="past" from="2009-03-01" to="2011-03-01" position="Developer"/>
+				</contributions-group>
+			</author>
+			<author>
+				<realname><![CDATA[Jari Kanerva]]></realname>
+				<username><![CDATA[tumba25]]></username>
+				<homepage><![CDATA[http://phpbbmodders.net]]></homepage>
+				<contributions-group>
+					<contributions status="current" from="2011-03-01" position="Developer"/>
+				</contributions-group>
+			</author>
+		</author-group>
+		<mod-version>1.0.3</mod-version>
+		<installation>
+			<level>easy</level>
+			<time>60</time>
+			<target-version>3.0.8</target-version>
+		</installation>
+		<history>
+			<entry>
+				<date>2011-03-24</date>
+				<rev-version>1.0.3</rev-version>
+				<changelog lang="en">
+					<change><![CDATA[Added reporting to StopForumSpam]]></change>
+					<change><![CDATA[Fixed some bugs]]></change>
+				</changelog>
+			</entry>
+			<entry>
+				<date>2009-01-13</date>
+				<rev-version>1.0.2</rev-version>
+				<changelog lang="en">
+					<change><![CDATA[Fixing a bug where the avatar might not get deleted.]]></change>
+					<change><![CDATA[phpBB 3.0.4 support]]></change>
+					<change><![CDATA[To update just upload the new files.]]></change>
+				</changelog>
+			</entry>
+			<entry>
+				<date>2008-09-05</date>
+				<rev-version>1.0.1</rev-version>
+				<changelog lang="en">
+					<change><![CDATA[Fixing a critical bug which cleared out all of the profile info from all users instead of just from the single user.]]></change>
+					<change><![CDATA[To update just upload the new files.]]></change>
+				</changelog>
+			</entry>
+			<entry>
+				<date>2008-08-01</date>
+				<rev-version>1.0.0</rev-version>
+				<changelog lang="en">
+					<change><![CDATA[Initial Release]]></change>
+				</changelog>
+			</entry>
+		</history>
+		<link-group>
+			<link type="template" href="subsilver2.xml" lang="en">subsilver2</link>
+		</link-group>
+	</header>
+	<action-group>
+		<copy>
+			<file from="root/adm/ocban.php" to="adm/ocban.php"/>
+			<file from="root/language/en/mods/ocban.php" to="language/en/mods/ocban.php"/>
+		</copy>
+		<open src="memberlist.php">
+			<edit>
+				<find><![CDATA[case 'viewprofile':]]></find>
+				<action type="after-add"><![CDATA[		$user->add_lang('mods/ocban');]]></action>
+			</edit>
+			<edit>
+				<find><![CDATA['U_USER_BAN']]></find>
+				<action type="before-add"><![CDATA[			'U_USER_OCBAN'			=> ($auth->acl_get('a_') && $member['user_type'] != USER_FOUNDER) ? append_sid("{$phpbb_root_path}adm/ocban.$phpEx", 'u=' . $user_id, true, $user->session_id) : '',]]></action>
+			</edit>
+		</open>
+		<open src="styles/prosilver/template/memberlist_view.html">
+			<edit>
+				<find><![CDATA[<!-- IF U_USER_ADMIN --> [ <a href="{U_USER_ADMIN}">{L_USER_ADMIN}</a> ]<!-- ENDIF -->]]></find>
+				<action type="after-add"><![CDATA[			<!-- IF U_USER_OCBAN --> [ <a href="{U_USER_OCBAN}">{L_USER_OCBAN}</a> ]<!-- ENDIF -->]]></action>
+			</edit>
+		</open>
+		<diy-instructions lang="en"><![CDATA[Edit adm/ocban.php to configure the settings.]]></diy-instructions>
+	</action-group>
+</mod>
