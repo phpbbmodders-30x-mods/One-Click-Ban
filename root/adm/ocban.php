@@ -7,7 +7,7 @@
 $ban_username = true;
 
 /* Set to the group ID if you want to move a user to a certain group.  This will set that group as default and remove the user from any other groups */
-$move_to_group = 9;
+$move_to_group = 0;
 
 // Delete the user's posts?
 $delete_posts = true;
