@@ -102,7 +102,7 @@ if (confirm_box(true))
 		delete_posts('poster_id', $user_id);
 	}
 
-	if ($delete_avatar)
+	if ($delete_avatar && !empty($row['user_avatar']))
 	{
 		avatar_delete('user', $row, true);
 	}
