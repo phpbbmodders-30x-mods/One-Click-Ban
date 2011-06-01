@@ -127,8 +127,6 @@ if (confirm_box(true))
 			'user_website'		=> '',
 			'user_occ'			=> '',
 			'user_interests'	=> '',
-			'user_phpbbcom'	=> '',
-			'user_gender'	=> 0,
 		);
 		$db->sql_query('UPDATE ' . USERS_TABLE . ' SET ' .
 			$db->sql_build_array('UPDATE', $sql_ary) . '
@@ -136,7 +134,7 @@ if (confirm_box(true))
 
 		// Also delete all extra profile fields for that user.
 		$db->sql_query('DELETE FROM ' . PROFILE_FIELDS_DATA_TABLE . '
-									 WHERE user_id = ' . $user_id);
+			WHERE user_id = ' . $user_id);
 	}
 
 	if ($move_to_group)
