@@ -28,6 +28,8 @@ if (empty($lang) || !is_array($lang))
 $lang = array_merge($lang, array(
 	'AND_REPORT' => 'and report the user to SFS',
 
+	'CANT_BAN_FOUNDER' => 'You can not ban a founder',
+
 	'N/A'				=> 'N/A',
 	'NOT'				=> '<strong>Not</strong>',
 

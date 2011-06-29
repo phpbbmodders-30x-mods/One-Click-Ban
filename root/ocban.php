@@ -81,7 +81,7 @@ $user_email = $row['user_email'];
 
 if ($row['user_type'] == USER_FOUNDER)
 {
-	trigger_error('You can not ban a founder');
+	trigger_error('CANT_BAN_FOUNDER');
 }
 // If the user selected cancel, redirect to the profile.
 if (isset($_POST['cancel']))
