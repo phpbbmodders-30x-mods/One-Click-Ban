@@ -173,10 +173,10 @@ if (confirm_box(true))
 			$error_p = strpos($response, '<p>', $error_end) + 3;
 			$error_p_end = strpos($response, '</p>', $error_p);
 
-			$error = substr($response, $error_div, ($error_end - $error_div)) . '<br />';
-			$error .= substr($response, $error_p, ($error_p_end - $error_p)) . '<br />';
+			$error = htmlspecialchars(substr($response, $error_div, ($error_end - $error_div))) . '<br />';
+			$error .= htmlspecialchars(substr($response, $error_p, ($error_p_end - $error_p))) . '<br />';
 
-			$message = $message = $user->lang['SFS_UNSUCCESSFUL'] . $error;
+			$message = $user->lang['SFS_UNSUCCESSFUL'] . $error;
 		}
 	}
 	else
