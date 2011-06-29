@@ -40,6 +40,13 @@ We would prefer if you request support for this MOD and report errors in our tra
 		</installation>
 		<history>
 			<entry>
+				<date>2011-06-30</date>
+				<rev-version>1.0.4</rev-version>
+				<changelog lang="en">
+					<change><![CDATA[Fixed some errors.]]></change>
+				</changelog>
+			</entry>
+			<entry>
 				<date>2011-03-24</date>
 				<rev-version>1.0.3</rev-version>
 				<changelog lang="en">
@@ -78,7 +85,7 @@ We would prefer if you request support for this MOD and report errors in our tra
 	</header>
 	<action-group>
 		<copy>
-			<file from="root/adm/ocban.php" to="adm/ocban.php"/>
+			<file from="root/ocban.php" to="ocban.php"/>
 			<file from="root/language/en/mods/ocban.php" to="language/en/mods/ocban.php"/>
 		</copy>
 		<open src="memberlist.php">
