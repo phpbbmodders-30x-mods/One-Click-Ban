@@ -40,18 +40,18 @@ We would prefer if you request support for this MOD and report errors in our tra
 		</installation>
 		<history>
 			<entry>
-				<date>2011-06-30</date>
-				<rev-version>1.0.4</rev-version>
+				<date>2008-08-01</date>
+				<rev-version>1.0.0</rev-version>
 				<changelog lang="en">
-					<change><![CDATA[Fixed some errors.]]></change>
+					<change><![CDATA[Initial Release]]></change>
 				</changelog>
 			</entry>
 			<entry>
-				<date>2011-03-24</date>
-				<rev-version>1.0.3</rev-version>
+				<date>2008-09-05</date>
+				<rev-version>1.0.1</rev-version>
 				<changelog lang="en">
-					<change><![CDATA[Added reporting to StopForumSpam]]></change>
-					<change><![CDATA[Fixed some bugs]]></change>
+					<change><![CDATA[Fixing a critical bug which cleared out all of the profile info from all users instead of just from the single user.]]></change>
+					<change><![CDATA[To update just upload the new files.]]></change>
 				</changelog>
 			</entry>
 			<entry>
@@ -64,18 +64,18 @@ We would prefer if you request support for this MOD and report errors in our tra
 				</changelog>
 			</entry>
 			<entry>
-				<date>2008-09-05</date>
-				<rev-version>1.0.1</rev-version>
+				<date>2011-03-24</date>
+				<rev-version>1.0.3</rev-version>
 				<changelog lang="en">
-					<change><![CDATA[Fixing a critical bug which cleared out all of the profile info from all users instead of just from the single user.]]></change>
-					<change><![CDATA[To update just upload the new files.]]></change>
+					<change><![CDATA[Added reporting to StopForumSpam]]></change>
+					<change><![CDATA[Fixed some bugs]]></change>
 				</changelog>
 			</entry>
 			<entry>
-				<date>2008-08-01</date>
-				<rev-version>1.0.0</rev-version>
+				<date>2011-06-30</date>
+				<rev-version>1.0.4</rev-version>
 				<changelog lang="en">
-					<change><![CDATA[Initial Release]]></change>
+					<change><![CDATA[Fixed some errors.]]></change>
 				</changelog>
 			</entry>
 		</history>
@@ -95,7 +95,7 @@ We would prefer if you request support for this MOD and report errors in our tra
 			</edit>
 			<edit>
 				<find><![CDATA['U_USER_BAN']]></find>
-				<action type="before-add"><![CDATA[			'U_USER_OCBAN'			=> ($auth->acl_get('a_') && $member['user_type'] != USER_FOUNDER) ? append_sid("{$phpbb_root_path}adm/ocban.$phpEx", 'u=' . $user_id, true, $user->session_id) : '',]]></action>
+				<action type="before-add"><![CDATA[			'U_USER_OCBAN'			=> ($auth->acl_get('a_') && $member['user_type'] != USER_FOUNDER) ? append_sid("{$phpbb_root_path}ocban.$phpEx", 'u=' . $user_id, true, $user->session_id) : '',]]></action>
 			</edit>
 		</open>
 		<open src="styles/prosilver/template/memberlist_view.html">
