@@ -65,8 +65,9 @@ if (!$user_id)
 	trigger_error('NO_USER');
 }
 
-$sql = 'SELECT * FROM ' . USERS_TABLE . ' WHERE user_id = ' . $user_id;
-$result = $db->sql_query($sql);
+$sql = 'SELECT * FROM ' . USERS_TABLE . '
+	WHERE user_id = ' . $user_id;
+$result = $db->sql_query_limit($sql, 1);
 $row = $db->sql_fetchrow($result);
 $db->sql_freeresult($result);
 
@@ -87,6 +88,7 @@ if ($row['user_type'] == USER_FOUNDER)
 if (isset($_POST['cancel']))
 {
 	redirect(append_sid($phpbb_root_path . 'memberlist.' . $phpEx, 'mode=viewprofile&amp;u=' . $user_id));
+	// exit is not really needed here.
 	exit;
 }
 
@@ -110,7 +112,11 @@ if (confirm_box(true))
 	if ($delete_signature)
 	{
 		$db->sql_query('UPDATE ' . USERS_TABLE . ' SET ' .
-			$db->sql_build_array('UPDATE', array('user_sig' => '', 'user_sig_bbcode_uid' => '', 'user_sig_bbcode_bitfield' => '')) . '
+			$db->sql_build_array('UPDATE', array(
+				'user_sig' => '',
+				'user_sig_bbcode_uid' => '',
+				'user_sig_bbcode_bitfield' => ''
+			)) . '
 			WHERE user_id = ' . $user_id);
 	}
 
@@ -130,7 +136,7 @@ if (confirm_box(true))
 		);
 		$db->sql_query('UPDATE ' . USERS_TABLE . ' SET ' .
 			$db->sql_build_array('UPDATE', $sql_ary) . '
-			WHERE user_id = ' . $user_id);
+				WHERE user_id = ' . $user_id);
 
 		// Also delete all extra profile fields for that user.
 		$db->sql_query('DELETE FROM ' . PROFILE_FIELDS_DATA_TABLE . '
@@ -139,7 +145,8 @@ if (confirm_box(true))
 
 	if ($move_to_group)
 	{
-		$sql = 'SELECT group_id FROM ' . USER_GROUP_TABLE . ' WHERE user_id = ' . $user_id;
+		$sql = 'SELECT group_id FROM ' . USER_GROUP_TABLE . '
+			WHERE user_id = ' . $user_id;
 		$result = $db->sql_query($sql);
 		while ($row = $db->sql_fetchrow($result))
 		{
