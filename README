@@ -1,6 +1,6 @@
 Adds a script to one click ban a user.
 Along with banning you can have it automatically move the user to a certain group, delete their posts, delete their avatar, signature, and profile information.
 
-You can configure the script by editing the adm/ocban.php file.
+You can configure the script by editing the ocban.php file.
 Only administrators will be able to OC Ban users.
   
