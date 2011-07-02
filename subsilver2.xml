@@ -38,6 +38,9 @@ We would prefer if you request support for this MOD and report errors in our tra
 			<time>60</time>
 			<target-version>3.0.8</target-version>
 		</installation>
+		<link-group>
+			<link type="parent" href="./install.xml" lang="en">Main Install file</link>
+		</link-group>
 	</header>
 	<action-group>
 		<open src="styles/subsilver2/template/memberlist_view.html">
