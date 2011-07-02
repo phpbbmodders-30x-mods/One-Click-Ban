@@ -104,6 +104,6 @@ We would prefer if you request support for this MOD and report errors in our tra
 				<action type="after-add"><![CDATA[			<!-- IF U_USER_OCBAN --> [ <a href="{U_USER_OCBAN}">{L_USER_OCBAN}</a> ]<!-- ENDIF -->]]></action>
 			</edit>
 		</open>
-		<diy-instructions lang="en"><![CDATA[Edit adm/ocban.php to configure the settings.]]></diy-instructions>
+		<diy-instructions lang="en"><![CDATA[Edit /ocban.php to configure the settings.]]></diy-instructions>
 	</action-group>
 </mod>
