@@ -29,6 +29,7 @@ $lang = array_merge($lang, array(
 	'AND_REPORT' => 'and report the user to SFS',
 
 	'CANT_BAN_FOUNDER' => 'You can not ban a founder',
+	'CANT_USE_BAN' => 'You do not have permission to ban users',
 
 	'N/A'				=> 'N/A',
 	'NOT'				=> '<strong>Not</strong>',

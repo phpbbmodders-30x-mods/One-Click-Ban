@@ -95,7 +95,7 @@ We would prefer if you request support for this MOD and report errors in our tra
 			</edit>
 			<edit>
 				<find><![CDATA['U_USER_BAN']]></find>
-				<action type="before-add"><![CDATA[			'U_USER_OCBAN'			=> ($auth->acl_get('a_') && $member['user_type'] != USER_FOUNDER) ? append_sid("{$phpbb_root_path}ocban.$phpEx", 'u=' . $user_id, true, $user->session_id) : '',]]></action>
+				<action type="before-add"><![CDATA[			'U_USER_OCBAN' => (($auth->acl_get('a_ban') || $auth->acl_get('m_ban')) && $member['user_type'] != USER_FOUNDER) ? append_sid("{$phpbb_root_path}ocban.$phpEx", 'u=' . $user_id, true, $user->session_id) : '',]]></action>
 			</edit>
 		</open>
 		<open src="styles/prosilver/template/memberlist_view.html">

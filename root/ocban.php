@@ -46,16 +46,10 @@ $auth->acl($user->data);
 $user->setup(array('acp/common', 'mods/ocban'));
 // End session management
 
-// Have they authenticated (again) as an admin for this session?
-if (empty($user->data['session_admin']))
+// Do this user have ban permissions.
+if (!$auth->acl_get('a_ban') && !$auth->acl_get('m_ban'))
 {
-	login_box('', $user->lang['LOGIN_ADMIN_CONFIRM'], $user->lang['LOGIN_ADMIN_SUCCESS'], true, false);
-}
-
-// Is user any type of admin?
-if (!$auth->acl_get('a_'))
-{
-	trigger_error('NO_ADMIN');
+	trigger_error('CANT_USE_BAN');
 }
 
 $user_id = request_var('u', 0);
@@ -84,6 +78,7 @@ if ($row['user_type'] == USER_FOUNDER)
 {
 	trigger_error('CANT_BAN_FOUNDER');
 }
+
 // If the user selected cancel, redirect to the profile.
 if (isset($_POST['cancel']))
 {
