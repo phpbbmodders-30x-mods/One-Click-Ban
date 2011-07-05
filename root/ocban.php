@@ -43,7 +43,7 @@ require($phpbb_root_path . 'includes/functions_user.' . $phpEx);
 // Start session management
 $user->session_begin();
 $auth->acl($user->data);
-$user->setup(array('acp/common', 'mods/ocban'));
+$user->setup(array('acp/common', 'acp/users', 'mods/ocban'));
 // End session management
 
 // Do this user have ban permissions.
