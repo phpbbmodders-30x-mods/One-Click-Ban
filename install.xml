@@ -8,9 +8,9 @@
 		<license><![CDATA[http://opensource.org/licenses/gpl-license.php GNU General Public License v2]]></license>
 		<title lang="en"><![CDATA[One Click Ban]]></title>
 		<description lang="en"><![CDATA[Adds a script to one click ban a user.  Along with banning you can have it automatically move the user to a certain group, delete their posts, delete their avatar, signature, and profile information.]]></description>
-		<author-notes lang="en"><![CDATA[You can configure the script by editing the adm/ocban.php file.
+		<author-notes lang="en"><![CDATA[You can configure the script by editing the ocban.php file in your forum root.
 
-Only administrators will be able to OC Ban users.
+Administrators and moderators with ban permissions will be able to OC Ban users.
 
 We would prefer if you request support for this MOD and report errors in our tracker at http://phpbbmodders.net]]></author-notes>
 		<author-group>
@@ -104,6 +104,6 @@ We would prefer if you request support for this MOD and report errors in our tra
 				<action type="after-add"><![CDATA[			<!-- IF U_USER_OCBAN --> [ <a href="{U_USER_OCBAN}">{L_USER_OCBAN}</a> ]<!-- ENDIF -->]]></action>
 			</edit>
 		</open>
-		<diy-instructions lang="en"><![CDATA[Edit /ocban.php to configure the settings.]]></diy-instructions>
+		<diy-instructions lang="en"><![CDATA[Edit ocban.php in your forum root to configure the settings.]]></diy-instructions>
 	</action-group>
 </mod>
